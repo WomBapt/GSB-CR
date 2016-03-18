@@ -1,25 +1,25 @@
-<?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+<?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class Welcome extends CI_Controller {
+/**
+ * Contrôleur du module VISITEUR de l'application
+*/
+class C_visiteur extends CI_Controller {
 
 	/**
-	 * Index Page for this controller.
-	 *
-	 * Maps to the following URL
-	 * 		http://example.com/index.php/welcome
-	 *	- or -
-	 * 		http://example.com/index.php/welcome/index
-	 *	- or -
-	 * Since this controller is set as the default controller in
-	 * config/routes.php, it's displayed at http://example.com/
-	 *
-	 * So any other public methods not prefixed with an underscore will
-	 * map to /index.php/welcome/<method_name>
-	 * @see https://codeigniter.com/user_guide/general/urls.html
-	 */
-	public function index()
+	 * @param $action : l'action demandée par le visiteur
+	 * @param $params : les éventuels paramètres transmis pour la réalisation de cette action
+	*/
+	public function _remap($action, $params = array())
 	{
-		$this->load->view('welcome_message');
+		// chargement du modèle d'authentification
+		$this->load->model('authentif');
+		
+		// contrôle de la bonne authentification de l'utilisateur
+		if (!$this->authentif->estConnecte()) 
+		{
+			// l'utilisateur n'est pas authentifié, on envoie la vue de connexion
+			$data = array();
+			$this->views->load('welcome_message', $data);
+		}
 	}
 }
