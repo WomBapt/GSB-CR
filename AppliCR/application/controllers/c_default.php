@@ -22,7 +22,7 @@ class C_default extends CI_Controller {
 		if (!$this->authentif->estConnecte()) 
 		{
 			$data = array();
-			$this->templates->load('t_connexion', 'v_connexion', $data);
+			$this->views->load('v_connexion', $data);
 		}
 		else
 		{
