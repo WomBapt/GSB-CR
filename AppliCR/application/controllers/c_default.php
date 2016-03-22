@@ -1,28 +1,28 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
 /**
- * Contrôleur par défaut de l'application
- * Si aucune spécification de contrôleur n'est précisée dans l'URL du navigateur
- * c'est le contrôleur par défaut qui sera invoqué. Son rôle est :
- * 		+ d'orienter vers le bon contrôleur selon la situation
+ * ContrÃ´leur par dÃ©faut de l'application
+ * Si aucune spÃ©cification de contrÃ´leur n'est prÃ©cisÃ©e dans l'URL du navigateur
+ * c'est le contrÃ´leur par dÃ©faut qui sera invoquÃ©. Son rÃ´le est :
+ * 		+ d'orienter vers le bon contrÃ´leur selon la situation
  * 		+ de traiter le retour du formulaire de connexion 
 */
 class C_default extends CI_Controller {
 
 	/**
-	 * Fonctionnalité par défaut du contrôleur. 
-	 * Vérifie l'existence d'une connexion :
-	 * Soit elle existe et on redirige vers le contrôleur de VISITEUR, 
+	 * FonctionnalitÃ© par dÃ©faut du contrÃ´leur. 
+	 * VÃ©rifie l'existence d'une connexion :
+	 * Soit elle existe et on redirige vers le contrÃ´leur de VISITEUR, 
 	 * soit elle n'existe pas et on envoie la vue de connexion
 	*/
 	public function index()
 	{
 		$this->load->model('authentif');
-		
+		//$this->load->view('welcome_message', $data);
 		if (!$this->authentif->estConnecte()) 
 		{
 			$data = array();
-			$this->views->load('v_connexion', $data);
+			$this->load->view('v_connexion', $data); 
 		}
 		else
 		{
@@ -36,7 +36,7 @@ class C_default extends CI_Controller {
 	 * s'il est reconnu
 	*/
 	public function connecter () 
-	{	// TODO : conrôler que l'obtention des données postées ne rend pas d'erreurs 
+	{	// TODO : conrÃ´ler que l'obtention des donnÃ©es postÃ©es ne rend pas d'erreurs 
 
 		$this->load->model('authentif');
 		
