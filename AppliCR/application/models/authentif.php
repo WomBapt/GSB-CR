@@ -9,7 +9,7 @@ class Authentif extends CI_Model {
     }
 
 	 /**
-	 * Teste si un quelconque visiteur est connecté
+	 * Teste si un quelconque visiteur est connectï¿½
 	 * 
 	 * @return vrai ou faux 
 	 */
@@ -21,31 +21,28 @@ class Authentif extends CI_Model {
 	/**
 	 * Enregistre dans une variable session les infos d'un visiteur
 	 * 
-	 * @param $id 
 	 * @param $nom
 	 * @param $prenom
 	 */
-	public function connecter($idUser,$nom,$prenom,$statut)
-	{	// TODO : s'assurer que les paramètres reçus sont cohérents avec ceux mémorisés en session
+	public function connecter($nom,$prenom)
+	{	// TODO : s'assurer que les paramï¿½tres reï¿½us sont cohï¿½rents avec ceux mï¿½morisï¿½s en session
 
 		$authUser = array(
-                   'idUser'  => $idUser,
-                   'nom' => $nom,
-                   'prenom' => $prenom,
+                   'VIS_NOM' => $nom,
+                   'Vis_PRENOM' => $prenom,
 				);
 
 		$this->session->set_userdata($authUser);
 	}
 
 	/**
-	 * Détruit la session active et redirige vers le contrôleur par défaut
+	 * Dï¿½truit la session active et redirige vers le contrï¿½leur par dï¿½faut
 	 */
 	public function deconnecter()
 	{
 		$authUser = array(
-                   'idUser'  => '',
-                   'nom' => '',
-                   'prenom' => '',
+                   'VIS_NOM' => '',
+                   'Vis_PRENOM' => '',
 				);
 	
 		$this->session->unset_userdata($authUser);
@@ -56,12 +53,12 @@ class Authentif extends CI_Model {
 	}
 
 	/**
-	 * Vérifie en base de données si les informations de connexions sont correctes
+	 * Vï¿½rifie en base de donnï¿½es si les informations de connexions sont correctes
 	 * 
 	 * @return : renvoie l'id, le nom et le prenom de l'utilisateur dans un tableau s'il est reconnu, sinon un tableau vide.
 	 */
 	public function authentifier ($login, $mdp) 
-	{	// TODO : s'assurer que les paramètres reçus sont cohérents avec ceux mémorisés en session
+	{	// TODO : s'assurer que les paramï¿½tres reï¿½us sont cohï¿½rents avec ceux mï¿½morisï¿½s en session
 	
 		$this->load->model('dataAccess');
 

@@ -39,20 +39,19 @@ class C_default extends CI_Controller {
 	{	// TODO : conrÃ´ler que l'obtention des donnÃ©es postÃ©es ne rend pas d'erreurs 
 
 		$this->load->model('authentif');
-		
+
 		$login = $this->input->post('login');
 		$mdp = $this->input->post('mdp');
-		
 		$authUser = $this->authentif->authentifier($login, $mdp);
 
 		if(empty($authUser))
 		{
 			$data = array('erreur'=>'Login ou mot de passe incorrect');
-			$this->templates->load('t_connexion', 'v_connexion', $data);
+			$this->load->view('v_connexion', $data);
 		}
 		else
 		{
-			$this->authentif->connecter($authUser['id'], $authUser['nom'], $authUser['prenom']);
+			$this->authentif->connecter($authUser['VIS_NOM'], $authUser['Vis_PRENOM']);
 			$this->index();
 		}
 	}
