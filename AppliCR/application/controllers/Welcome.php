@@ -1,25 +1,32 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
 /**
- * Contrôleur du module VISITEUR de l'application
+ * Contrï¿½leur du module VISITEUR de l'application
 */
-class C_visiteur extends CI_Controller {
+class Welcome extends CI_Controller {
 
 	/**
-	 * @param $action : l'action demandée par le visiteur
-	 * @param $params : les éventuels paramètres transmis pour la réalisation de cette action
+	 * @param $action : l'action demandï¿½e par le visiteur
+	 * @param $params : les ï¿½ventuels paramï¿½tres transmis pour la rï¿½alisation de cette action
 	*/
-	public function _remap($action, $params = array())
+	public function ajouteCR($VIS_MATRICUL, $RAP_NUM, $PRA_NUM, $RAP_DATE, $RAP_BILAN, $RAP_MOTIF)
 	{
-		// chargement du modèle d'authentification
-		$this->load->model('authentif');
+		$this->load->model('functionCR');
 		
-		// contrôle de la bonne authentification de l'utilisateur
-		if (!$this->authentif->estConnecte()) 
-		{
-			// l'utilisateur n'est pas authentifié, on envoie la vue de connexion
-			$data = array();
-			$this->views->load('welcome_message', $data);
-		}
+		// obtention de l'id du visiteur et du mois concernÃ©
+		$VIS_MATRICUL = $this->session->userdata('idUser');
+		
+		// obtention des donnÃ©es postÃ©es
+		$uneLigne = array(
+				'VIS_MATRICUL' => $this->input>post('VIS_MATRICUL'),
+				'RAP_NUM' => $this->input>post('RAP_NUM'),
+				'PRA_NUM' => $this->input>post('PRA_NUM'),
+				'RAP_DATE' => $this->input>post('RAP_DATE'),
+				'RAP_BILAN' => $this->input>post('RAP_BILAN'),
+				'RAP_MOTIF' => $this->input>post('RAP_MOTIF')
+		);
+		
+		$this->functionCR->ajouteFrais($VIS_MATRICUL, $RAP_NUM, $PRA_NUM, $RAP_DATE, $RAP_BILAN, $RAP_MOTIF);
+		
 	}
 }
