@@ -20,7 +20,7 @@ class DataAccess extends CI_Model {
 	 * @return l'id, le nom et le pr�nom sous la forme d'un tableau associatif 
 	*/
 	public function getInfosVisiteur($login, $mdp){
-		
+
 		$this->load->database();
 		$query = $this->db->query("SELECT * FROM visiteur WHERE VIS_NOM = '" .$mdp."' AND VIS_MATRICULE = '" .$login. "'");
 
