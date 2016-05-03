@@ -19,4 +19,11 @@ public function ajouterCR($matricule, $praticien, $dateRapport, $motif, $bilan)
 		
 	}
 	
+public function getPraticiens()
+	{
+		$this->load->model('dataAccess');
+		$this->dataAccess->getPraticiens($praticiens);
+	}
+	
+
 }

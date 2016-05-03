@@ -45,6 +45,17 @@ class DataAccess extends CI_Model {
 		$lesLignes = $rs->result_array();
 		$nbLignes = $rs->num_rows();
 		return $lesLignes;
-		}
-		
 	}
+		
+	public function getPraticiens($PRA_NOM, $PRA_PRENOM){
+		
+		$this->load->database();
+		$query = $this->db->query("select PRA_NOM, PRA_PRENOM
+		from praticien;");
+		$praticiens = $query->first_row('array');
+		print_r($practicien);
+		die();
+		return $praticiens;
+	}
+		
+}

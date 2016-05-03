@@ -96,4 +96,10 @@ class C_default extends CI_Controller {
 		}
 	}
 	
+	public function getPraticiens()
+	{
+		$this->load->model('functionCR');
+		$this->functionCR->getPraticiens();		
+	}
+	
 }

@@ -31,9 +31,9 @@
           </ul>
         </li>
       </ul>
-      <form class="navbar-form navbar-right" role="search">
-        <button type="submit" class="btn btn-default">Déconnexion</button>
-      </form>
+      <ul class="nav navbar-nav navbar-right">
+      		<li><a href="<?php echo $path.'c_default/deconnecter';?>">Déconnexion</a></li>	
+      </ul>
     </div><!-- /.navbar-collapse -->
   	</div><!-- /.container-fluid -->
 	</nav>

@@ -31,9 +31,9 @@
           </ul>
         </li>
       </ul>
-      <form class="navbar-form navbar-right" role="search">
-        <button type="submit" class="btn btn-default">Déconnexion</button>
-      </form>
+      <ul class="nav navbar-nav navbar-right">
+      		<li><a href="<?php echo $path.'c_default/deconnecter';?>">Déconnexion</a></li>	
+      </ul>
     </div><!-- /.navbar-collapse -->
   	</div><!-- /.container-fluid -->
 	</nav>
@@ -52,7 +52,7 @@
       <div class="input-group-btn">
         <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Praticiens <span class="caret" name="praticien"></span></button>
         <ul class="dropdown-menu dropdown-menu-right">
-          <li><a href="#">Liste de praticien</a></li>
+          <li><a href="<?php echo $path.'c_default/getPraticiens';?>">Liste de praticien</a></li>
         </ul>
       </div><!-- /btn-group -->
     </div><!-- /input-group -->
