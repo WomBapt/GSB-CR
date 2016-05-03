@@ -56,6 +56,13 @@ class C_default extends CI_Controller {
 		}
 	}
 	
+	public function deconnecter()
+	{
+		$this->load->model('authentif');
+		$this->authentif->deconnecter();
+		$this->load->view('v_connexion');
+	}	
+	
 	public function loadAjouter()
 	{
 		$this->load->model('authentif');

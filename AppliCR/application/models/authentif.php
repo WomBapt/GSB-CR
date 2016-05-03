@@ -42,6 +42,7 @@ class Authentif extends CI_Model {
 	public function deconnecter()
 	{
 		$authUser = array(
+					'idUser' => '',
                    'VIS_NOM' => '',
                    'Vis_PRENOM' => '',
 				);
