@@ -24,10 +24,11 @@ class Authentif extends CI_Model {
 	 * @param $nom
 	 * @param $prenom
 	 */
-	public function connecter($nom,$prenom)
+	public function connecter($nom,$prenom,$id)
 	{	// TODO : s'assurer que les param�tres re�us sont coh�rents avec ceux m�moris�s en session
 
 		$authUser = array(
+					'idUser' => $id,
                    'VIS_NOM' => $nom,
                    'Vis_PRENOM' => $prenom,
 				);

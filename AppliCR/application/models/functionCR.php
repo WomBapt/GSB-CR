@@ -1,6 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class functionsCR extends CI_Model {
+class functionCR extends CI_Model {
 
     function __construct()
     {
@@ -11,17 +11,12 @@ class functionsCR extends CI_Model {
 		$this->load->model('dataAccess');
     }
     
-	public function ajouteFrais($VIS_MATRICUL, $uneLigne)
+	
+public function ajouterCR($matricule, $praticien, $dateRapport, $motif, $bilan)
 	{
-
-		$VIS_MATRICUL = $uneLigne['VIS_MATRICUL'];
-		$RAP_NUM = $uneLigne['RAP_NUM'];
-		$PRA_NUM = $uneLigne['PRA_NUM'];
-		$RAP_DATE = $uneLigne['RAP_DATE'];
-		$RAP_BILAN = $uneLigne['RAP_BILAN'];
-		$RAP_MOTIF = $uneLigne['RAP_MOTIF'];
-
-		$this->dataAccess->creeCR($VIS_MATRICUL, $RAP_NUM, $PRA_NUM, $RAP_DATE, $RAP_BILAN, $RAP_MOTIF);
+		$this->load->model('dataAccess');
+		$this->dataAccess->creeCR($matricule, $praticien, $dateRapport, $motif, $bilan);
+		
 	}
 	
 }

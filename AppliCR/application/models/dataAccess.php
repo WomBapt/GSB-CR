@@ -1,4 +1,4 @@
-...<?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+<?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
 /**
  * Mod�le qui impl�mente les fonctions d'acc�s aux donn�es 
@@ -29,12 +29,12 @@ class DataAccess extends CI_Model {
 		
 	}
 	
-	public function creeCR($VIS_MATRICUL, $RAP_NUM, $PRA_NUM, $RAP_DATE, $RAP_BILAN, $RAP_MOTIF){
+	public function creeCR($VIS_MATRICUL, $PRA_NUM, $RAP_DATE, $RAP_MOTIF, $RAP_BILAN){
 		
 		$req = "insert into rapport_visite
-		values('$VIS_MATRICUL', '$RAP_NUM', '$PRA_NUM', '$RAP_DATE', '$RAP_BILAN', '$RAP_MOTIF')";
+		values('$VIS_MATRICUL','$PRA_NUM', '$RAP_DATE', '$RAP_BILAN', '$RAP_MOTIF')";
 		$this->db->simple_query($req);
-		
+		die();
 	}
 	public function getLesLignesRapportVisite($VIS_MATRICUL){
 	

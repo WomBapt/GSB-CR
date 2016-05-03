@@ -27,7 +27,7 @@ class C_default extends CI_Controller {
 		else
 		{
 			$this->load->helper('url');
-			redirect('/Welcome/');
+			$this->load->view('v_accueil');
 		}
 	}
 	
@@ -35,7 +35,7 @@ class C_default extends CI_Controller {
 	 * Traite le retour du formulaire de connexion afin de connecter l'utilisateur
 	 * s'il est reconnu
 	*/
-	public function connecter () 
+	public function connecter() 
 	{	// TODO : conrÃ´ler que l'obtention des donnÃ©es postÃ©es ne rend pas d'erreurs 
 
 		$this->load->model('authentif');
@@ -51,8 +51,41 @@ class C_default extends CI_Controller {
 		}
 		else
 		{
-			$this->authentif->connecter($authUser['VIS_NOM'], $authUser['Vis_PRENOM']);
-			$this->index();
+			$this->authentif->connecter($authUser['VIS_NOM'], $authUser['Vis_PRENOM'], $authUser['VIS_MATRICULE']);
+			$this->load->view('v_accueil');
+		}
+	}
+	
+	public function loadAjouter()
+	{
+		$this->load->model('authentif');
+		//$this->load->view('welcome_message', $data);
+		if (!$this->authentif->estConnecte())
+		{
+			$data = array();
+			$this->load->view('v_connexion', $data);
+		}
+		else
+		{
+			$this->load->helper('url');
+			$this->load->view('v_ajouter');
+		}	
+	}
+	
+	
+	public function LoadConsulter()
+	{
+		$this->load->model('authentif');
+		//$this->load->view('welcome_message', $data);
+		if (!$this->authentif->estConnecte())
+		{
+			$data = array();
+			$this->load->view('v_connexion', $data);
+		}
+		else
+		{
+			$this->load->helper('url');
+			$this->load->view('v_consulter');
 		}
 	}
 	
