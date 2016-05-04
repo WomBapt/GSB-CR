@@ -29,12 +29,11 @@ class DataAccess extends CI_Model {
 		
 	}
 	
-	public function creeCR($VIS_MATRICUL, $PRA_NUM, $RAP_DATE, $RAP_MOTIF, $RAP_BILAN){
+	public function creeCR($VIS_MATRICUL,$RAP_NUM, $PRA_NUM, $RAP_DATE, $RAP_MOTIF, $RAP_BILAN){
 		
 		$req = "insert into rapport_visite
-		values('$VIS_MATRICUL','$PRA_NUM', '$RAP_DATE', '$RAP_BILAN', '$RAP_MOTIF')";
+		values('$VIS_MATRICUL','$RAP_NUM', '$PRA_NUM', '$RAP_DATE', '$RAP_BILAN', '$RAP_MOTIF')";
 		$this->db->simple_query($req);
-		die();
 	}
 	public function getLesLignesRapportVisite($VIS_MATRICUL){
 	
@@ -47,14 +46,12 @@ class DataAccess extends CI_Model {
 		return $lesLignes;
 	}
 		
-	public function getPraticiens($PRA_NOM, $PRA_PRENOM){
+	public function getPraticiens(){
 		
 		$this->load->database();
-		$query = $this->db->query("select PRA_NOM, PRA_PRENOM
-		from praticien;");
-		$praticiens = $query->first_row('array');
-		print_r($practicien);
-		die();
+		$req = ("select * from praticien;");
+		$rs = $this->db->query($req, array());
+		$praticiens = $rs->result_array();
 		return $praticiens;
 	}
 		

@@ -74,8 +74,10 @@ class C_default extends CI_Controller {
 		}
 		else
 		{
+			$this->load->model('functionCR');
+			$data['praticiens'] = $this->functionCR->getPraticiens();
 			$this->load->helper('url');
-			$this->load->view('v_ajouter');
+			$this->load->view('v_ajouter', $data);
 		}	
 	}
 	
@@ -94,12 +96,6 @@ class C_default extends CI_Controller {
 			$this->load->helper('url');
 			$this->load->view('v_consulter');
 		}
-	}
-	
-	public function getPraticiens()
-	{
-		$this->load->model('functionCR');
-		$this->functionCR->getPraticiens();		
 	}
 	
 }

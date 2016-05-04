@@ -11,7 +11,6 @@
    	<link href="<?php echo $path.'bootstrap-3.3.6-dist/css/bootstrap.min.css';?>" rel="stylesheet">
   </head>
   <body>
-	
 	<nav class="navbar navbar-inverse">
  		  <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
@@ -51,8 +50,13 @@
       <input type="text" class="form-control" aria-label="...">
       <div class="input-group-btn">
         <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Praticiens <span class="caret" name="praticien"></span></button>
-        <ul class="dropdown-menu dropdown-menu-right">
-          <li><a href="<?php echo $path.'c_default/getPraticiens';?>">Liste de praticien</a></li>
+        <ul class="dropdown-menu dropdown-menu-right">   
+        <?php 
+        foreach($praticiens as $prat)
+        {  
+        	echo '<li>'.$prat['PRA_NOM'].' '.$prat['PRA_PRENOM'].'</li>'; 
+		}?>
+          <li>Liste de praticien</li>
         </ul>
       </div><!-- /btn-group -->
     </div><!-- /input-group -->
