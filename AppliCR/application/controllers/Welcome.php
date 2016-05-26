@@ -24,9 +24,9 @@ class Welcome extends CI_Controller {
 			$bilan = $this->input->post('bilan');
 			
 		$this->functionCR->ajouterCR($matricule, $praticien, $dateRapport, $motif, $bilan);
+		$this->load->view('v_accueil');
 		
 		
-		$this->index();//rediriger vers une page
 				
 		
 	}

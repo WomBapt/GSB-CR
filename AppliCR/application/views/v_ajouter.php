@@ -47,18 +47,17 @@
 	
     <div class="input-group">
     <span class="input-group-addon" id="basic-addon3">Praticien</span>
-      <input type="text" class="form-control" aria-label="...">
-      <div class="input-group-btn">
-        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Praticiens <span class="caret" name="praticien"></span></button>
-        <ul class="dropdown-menu dropdown-menu-right">   
+
         <?php 
+        echo "<select name='praticiens'>";
         foreach($praticiens as $prat)
         {  
-        	echo '<li>'.$prat['PRA_NOM'].' '.$prat['PRA_PRENOM'].'</li>'; 
-		}?>
-          <li>Liste de praticien</li>
-        </ul>
-      </div><!-- /btn-group -->
+        	echo "<option name = ".$prat['PRA_NUM']." value=".$prat['PRA_NOM'].' '.$prat['PRA_PRENOM'].">".$prat['PRA_NOM'].' '.$prat['PRA_PRENOM']."</option>"; 
+        	
+		}
+		echo "</select>";
+		?>
+
     </div><!-- /input-group -->
     
     </br>

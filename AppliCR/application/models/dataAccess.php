@@ -29,10 +29,10 @@ class DataAccess extends CI_Model {
 		
 	}
 	
-	public function creeCR($VIS_MATRICUL,$RAP_NUM, $PRA_NUM, $RAP_DATE, $RAP_MOTIF, $RAP_BILAN){
+	public function creeCR($matricule, $praticien, $dateRapport, $motif, $bilan){
 		
 		$req = "insert into rapport_visite
-		values('$VIS_MATRICUL','$RAP_NUM', '$PRA_NUM', '$RAP_DATE', '$RAP_BILAN', '$RAP_MOTIF')";
+		values('$matricule', '', '$praticien', '$dateRapport', '$motif', '$bilan')";
 		$this->db->simple_query($req);
 	}
 	public function getLesLignesRapportVisite($VIS_MATRICUL){
