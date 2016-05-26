@@ -52,14 +52,15 @@
         echo "<select name='praticiens'>";
         foreach($praticiens as $prat)
         {  
-        	echo "<option name = ".$prat['PRA_NUM']." value=".$prat['PRA_NOM'].' '.$prat['PRA_PRENOM'].">".$prat['PRA_NOM'].' '.$prat['PRA_PRENOM']."</option>"; 
+        	echo "<option value = ".$prat['PRA_NUM']."> ".$prat['PRA_NOM'].' '.$prat['PRA_PRENOM']."</option>"; 
         	
 		}
 		echo "</select>";
 		?>
+		
 
     </div><!-- /input-group -->
-    
+
     </br>
     
     <div class="input-group">
@@ -88,7 +89,7 @@
   </div><!-- /.col-lg-4 -->
   
  </form>
-	
+
    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
    <script src="<?php echo $path.'bootstrap-3.3.6-dist/js/bootstrap.min.js';?>"></script>
   </body>

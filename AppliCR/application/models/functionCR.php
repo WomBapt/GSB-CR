@@ -12,10 +12,10 @@ class functionCR extends CI_Model {
     }
     
 	
-public function ajouterCR($matricule, $praticien, $dateRapport, $motif, $bilan)
+public function ajouterCR($matricule, $praticiens, $dateRapport, $motif, $bilan)
 	{
 		$this->load->model('dataAccess');
-		$this->dataAccess->creeCR($matricule, $praticien, $dateRapport, $motif, $bilan);
+		$this->dataAccess->creeCR($matricule, $praticiens, $dateRapport, $motif, $bilan);
 		
 	}
 	

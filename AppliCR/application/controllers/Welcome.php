@@ -18,12 +18,12 @@ class Welcome extends CI_Controller {
 		$matricule = $this->session->userdata('idUser');
 		
 		// obtention des données postées
-			$praticien = $this->input->post('praticien');
+			$praticiens = $_POST['praticiens'];
 			$dateRapport = $this->input->post('dateRapport');
 			$motif = $this->input->post('motif');
 			$bilan = $this->input->post('bilan');
 			
-		$this->functionCR->ajouterCR($matricule, $praticien, $dateRapport, $motif, $bilan);
+		$this->functionCR->ajouterCR($matricule, $praticiens, $dateRapport, $motif, $bilan);
 		$this->load->view('v_accueil');
 		
 		

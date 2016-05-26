@@ -29,11 +29,12 @@ class DataAccess extends CI_Model {
 		
 	}
 	
-	public function creeCR($matricule, $praticien, $dateRapport, $motif, $bilan){
+	public function creeCR($matricule, $praticiens, $dateRapport, $motif, $bilan){
 		
 		$req = "insert into rapport_visite
-		values('$matricule', '', '$praticien', '$dateRapport', '$motif', '$bilan')";
+		values('$matricule', '', '$praticiens', '$dateRapport', '$bilan', '$motif')";
 		$this->db->simple_query($req);
+
 	}
 	public function getLesLignesRapportVisite($VIS_MATRICUL){
 	
@@ -54,5 +55,6 @@ class DataAccess extends CI_Model {
 		$praticiens = $rs->result_array();
 		return $praticiens;
 	}
+	
 		
 }
